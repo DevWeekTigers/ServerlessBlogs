@@ -1,9 +1,38 @@
 const express = require("express")
+const dotenv = require("dotenv")
+const dbConnect = require("./config/database/dbConnect");
+const {userRegister} = require("./controllers/users/userCtrl");
+const userRoutes = require("./route/users/userRoute");
+const postRoute = require("./route/posts/postRoute");
 
-const app = express()
 
-console.log(app)
 
-const PORT = process.env.PORT || 5000
+const app = express();
+dotenv.config();
+
+dbConnect();
+console.log(process.env)
+
+app.use(express.json())
+
+app.use("/", userRoutes);
+
+app.post("/api/users/login", (req, res) => {
+    res.json({user: 'User login'});
+})
+
+
+app.get("/api/users", (req, res) => {
+    res.json({user: 'fetch User'});
+})
+
+
+// post routes
+app.use('/api/posts', postRoute)
+
+
+
+
+const PORT = process.env.PORT || 6000
 
 app.listen(PORT, console.log(`Server listening on ${PORT}`));
