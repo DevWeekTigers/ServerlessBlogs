@@ -16,6 +16,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          and then create a serverless bloggin app
         </a>
       </header>
     </div>
