@@ -1,16 +1,15 @@
-import logo from './assets/images/logo512.png' //'./logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Nav from './routes/nav/nav.comp';
+import Home from './routes/home/home.comp';
+//import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          insert serverless blogs here.
-        </p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Nav />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
 }
 
