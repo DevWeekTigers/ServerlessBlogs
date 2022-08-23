@@ -4,17 +4,17 @@
 
 .nav-container {
   height: 30px;
-  padding: 20px;
+  padding: 15px;
+  background-color: #F99D1C;
 }
 
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .App-logo[spin='true'] {
+    animation: App-logo-spin infinite 15s linear;
   }
 }
 

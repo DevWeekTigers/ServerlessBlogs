@@ -1,13 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
-import Nav from './routes/nav/nav.comp';
-import Home from './routes/home/home.comp';
+import NavBar from './routes/navBar';
+import HomePage from './routes/homePage';
+import AuthPage from './routes/authPage';
+import UserPage from './routes/userPage';
+import AdminPage from './routes/adminPage';
 //import './App.css';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Nav />}>
-        <Route index element={<Home />} />
+      <Route path="/" element={<NavBar />}>
+        <Route index element={<HomePage />} />
+        <Route path="/user"element={<UserPage />} />
+        <Route path="/auth"element={<AuthPage />} />
+        <Route path="/admin"element={<AdminPage />} />
       </Route>
     </Routes>
   );
