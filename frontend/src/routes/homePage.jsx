@@ -6,7 +6,7 @@ const HomePage = () => {
   const [spin, setSpin] = useState(false);
 
   return (
-    <div className="home-container">
+    <div className="home-container page">
       <header className="App-header">
         <img
           src={logo}

@@ -1,6 +1,6 @@
 const UserPage = () => {
   return(
-    <div className="App user-container">
+    <div className="user-container page">
       <p>this is the user-container</p>
     </div>
   )

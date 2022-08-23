@@ -2,10 +2,27 @@
   text-align: center;
 }
 
+.page{
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border: 5px solid red;
+}
+
+
 .nav-container {
   height: 30px;
   padding: 15px;
   background-color: #F99D1C;
+}
+
+.home-container{
+  margin: 0; 
 }
 
 .App-logo {
@@ -18,17 +35,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,4 +42,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.user-container {
+  margin: 0
+}
+
+.authentication-container {
+  margin: 0
+}
+
+.admin-container {
+  margin: 0
 }
