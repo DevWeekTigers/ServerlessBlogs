@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Feed from '../components/feed';
 import logo from '../assets/images/logo512.png';
 import '../App.css';
 
@@ -18,6 +19,7 @@ const HomePage = () => {
           spin={`${spin}`}
         />
         <div>this is where the most mind bloggling blog posts will be</div>
+        <Feed />
       </header>
     </div>
   );

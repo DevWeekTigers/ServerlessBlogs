@@ -1,7 +1,9 @@
+import '../App.css';
+
 const Post = () => {
   return(
-    <div className="post-container">
-      <p>this is the Post container</p>
+    <div className="post-container comp">
+      <p>this is a post</p>
     </div>
   )
 }
