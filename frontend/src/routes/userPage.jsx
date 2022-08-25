@@ -4,8 +4,8 @@ import NewPost from '../components/new-post';
 
 const UserPage = () => {
   return(
-    <div className="user-container page">
-      <p>this is the user-container</p>
+    <div className="user-page page">
+      <p>this is the user page</p>
       <Profile />
       <PrevPosts />
       <NewPost />

@@ -7,7 +7,7 @@ const HomePage = () => {
   const [spin, setSpin] = useState(false);
 
   return (
-    <div className="home-container page">
+    <div className="home-page page">
       <header className="App-header">
         <img
           src={logo}
@@ -18,7 +18,10 @@ const HomePage = () => {
           }}
           spin={`${spin}`}
         />
-        <div>this is where the most mind bloggling blog posts will be</div>
+        <div>
+          <p>this is home page</p>{' '}
+          <p>where the most mind bloggling blog posts will be</p>
+        </div>
         <Feed />
       </header>
     </div>

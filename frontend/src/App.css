@@ -26,7 +26,7 @@
   background-color: #F99D1C;
 }
 
-.home-container{
+.home-page{
   margin: 0; 
 }
 
@@ -49,14 +49,14 @@
   }
 }
 
-.user-container {
+.user-page {
   margin: 0
 }
 
-.authentication-container {
+.authentication-page {
   margin: 0
 }
 
-.admin-container {
+.admin-page {
   margin: 0
 }
