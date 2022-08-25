@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Serverless Blogs",
+  "name": "DevWeek Hackathon 2022 - Serverless Blogs",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+
+.page{
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border: 5px solid red;
+}
+
+.comp {
+  border: 5px solid blue;
+  margin: 10px;
+  padding: 10px;
+}
+
+.nav-container {
+  height: 30px;
+  padding: 15px;
+  background-color: #F99D1C;
+}
+
+.home-page{
+  margin: 0; 
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo[spin='true'] {
+    animation: App-logo-spin infinite 15s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.user-page {
+  margin: 0
+}
+
+.authentication-page {
+  margin: 0
+}
+
+.admin-page {
+  margin: 0
+}
