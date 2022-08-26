@@ -24,17 +24,17 @@ const SignIn = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const test = console.log(
+      const test = () => alert(
         `some asynchronous authentication happens for ${email}`
       );
-      setTimeout(test, 5000)
+      await setTimeout(test, 1000)
       resetFormFields();
     } catch (error) {
       switch (error.code) {
-        case 'auth/wrong-password':
+        case 'wrong-password':
           alert('incorrect password for email');
           break;
-        case 'auth/user not found':
+        case 'user not found':
           alert('no user associated with this email.');
           break;
         default:
