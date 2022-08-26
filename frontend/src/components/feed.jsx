@@ -1,5 +1,4 @@
 import Post from './post';
-
 import '../App.css';
 
 const Feed = () => {
