@@ -31,12 +31,13 @@ const SignIn = () => {
       resetFormFields();
     } catch (error) {
       switch (error.code) {
-        case 'wrong-password':
+        // update error codes to match backend api
+/*         case 'wrong-password':
           alert('incorrect password for email');
           break;
         case 'user not found':
           alert('no user associated with this email.');
-          break;
+          break; */
         default:
           console.log(error);
       }
