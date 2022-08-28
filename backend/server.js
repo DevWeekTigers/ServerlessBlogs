@@ -4,6 +4,7 @@ const dbConnect = require("./config/database/dbConnect");
 const {userRegister} = require("./controllers/users/userCtrl");
 const userRoutes = require("./route/users/userRoute");
 const postRoute = require("./route/posts/postRoute");
+const { errorHandler, notFound } = require("./middlewares/error/errorHandler");
 
 
 
@@ -30,8 +31,8 @@ app.get("/api/users", (req, res) => {
 // post routes
 app.use('/api/posts', postRoute)
 
-
-
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 6000
 
