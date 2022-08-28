@@ -1,5 +1,6 @@
 const User = require("../../model/user/User");
 const expressAsyncHandler = require("express-async-handler");
+const generateToken = require("../../config/token/generateToken");
 
 
 const userRegister = expressAsyncHandler(
@@ -37,7 +38,14 @@ const loginUser = expressAsyncHandler(
 
         if ( userFound && (await userFound.isPasswordMatch(password)))
         {
-            res.json(userFound);
+            res.json({
+                firstName: userFound?.firstName,
+                lastName: userFound?.lastName,
+                email: userFound?.email,
+                profilePhoto: userFound?.profilePhoto,
+                isAdmin: userFound?.isAdmin,
+                token: generateToken(userFound?.id),
+            });
         }
         else
         {
