@@ -1,15 +1,20 @@
 const User = require("../../model/user/User");
 const expressAsyncHandler = require("express-async-handler");
 const generateToken = require("../../config/token/generateToken");
+const validateMongoDbId = require("../utils/validateMongoDbId");
 
 
+//==============
+// Register User
+//==============
 const userRegister = expressAsyncHandler(
     async (req, res) => {
 
         // check if user is already registered
         const user = await User.findOne({email: req?.body?.email});
-        
-        if ( !user ) throw new Error("User already registered");
+        console.log(user);
+
+        if ( user  ) throw new Error("User already registered");
     
         try{
             const user = await User.create(
@@ -28,6 +33,10 @@ const userRegister = expressAsyncHandler(
         }
     }
 );
+
+//==============
+// Login  User
+//==============
 
 const loginUser = expressAsyncHandler(
     async (req, res) => {
@@ -60,10 +69,12 @@ const loginUser = expressAsyncHandler(
 );
 
 //==============
-// User
+// fetch User
 //==============
 
 const fetchUsers = expressAsyncHandler(
+
+    
     async (req, res) => {
 
         try {
@@ -76,4 +87,58 @@ const fetchUsers = expressAsyncHandler(
     }
 );
 
-module.exports = {userRegister, loginUser, fetchUsers}
+
+//==============
+// Delete User
+//==============
+
+const deleteUser = expressAsyncHandler(
+    async (req, res) => {
+
+        try {
+            const {id} = req.params;
+
+            validateMongoDbId(id);
+
+            const deleteUser = await User.findByIdAndDelete(id);
+
+            res.json("deleteUser");
+        }
+        catch(error){
+            res.json(error);
+        }
+    }
+);
+
+
+// user details
+
+const fetchUser = expressAsyncHandler(
+    async (req, res) => {
+
+        try {
+            const {id} = req.params;
+
+            validateMongoDbId(id); 
+            
+            const user = await User.findById(id);
+
+            res.json(user);
+
+        }
+        catch(error){
+            res.json(error);
+        }
+    }
+);
+
+
+//==========================================================
+module.exports = 
+{
+    userRegister, 
+    loginUser, 
+    fetchUsers,
+    deleteUser,
+    fetchUser
+}

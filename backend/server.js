@@ -18,14 +18,14 @@ app.use(express.json())
 
 app.use("/", userRoutes);
 
-app.post("/api/users/login", (req, res) => {
-    res.json({user: 'User login'});
-})
+// app.post("/api/users/login", (req, res) => {
+//     res.json({user: 'User login'});
+// })
 
 
-app.get("/api/users", (req, res) => {
-    res.json({user: 'fetch User'});
-})
+// app.get("/api/users", (req, res) => {
+//     res.json({user: 'fetch User'});
+// })
 
 
 // post routes

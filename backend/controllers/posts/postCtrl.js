@@ -52,9 +52,6 @@ const retrievePost = async (req, res) => {
     try {
 
         const {id} = req.params;
-
-
-
         const post = await Post.findById(id).populate("user");
         res.json(post);
     }
