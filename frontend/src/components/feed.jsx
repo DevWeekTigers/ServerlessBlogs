@@ -1,16 +1,16 @@
 import Post from './post';
-import Search from './search';
 
 import '../App.css';
 
-const Feed = () => {
-  return(
+const Feed = ({ posts }) => {
+  return (
     <div className="feed-container comp">
       <p>this is the feed container</p>
-      <Search />
-      <Post />
+      {posts.map((post, idx) => (
+        <Post key={idx} post={post} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default Feed;

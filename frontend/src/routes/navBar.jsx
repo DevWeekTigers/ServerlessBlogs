@@ -6,8 +6,8 @@ const NavBar = () => {
     <div className="App">
       <div className="nav-container">
         <Link to="/">Home</Link>{' '}
-        <Link to="/auth">Sign-In/Sign-Up</Link>{' '}
-        <Link to="/user">My Posts</Link>{' '}
+        <Link to="/auth">Sign-In</Link>{' '}
+        <Link to="/user">User</Link>{' '}
         <Link to="/admin">Admin</Link>{' '}
       </div>
       <Outlet />
