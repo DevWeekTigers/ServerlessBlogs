@@ -1,11 +1,20 @@
+import { useContext } from 'react';
+import { PostsContext } from '../contexts/postsContext';
+
 import '../App.css';
 
-const handleCategoryChange = (e) => {
-  //update this when state mgmt is implemented
-  console.log(`you changed the category to ${e.target.value}`);
-};
-
 const Categories = ({ categories }) => {
+  const { posts, setPosts } = useContext(PostsContext);
+
+
+  // need to persist categories options
+  const handleCategoryChange = (e) => {
+    const filteredPosts = posts.filter(
+      (post) => post.category === e.target.value
+    );
+    setPosts(filteredPosts);
+  };
+
   return (
     <div className="categories-container comp">
       <p>this is the categories container</p>

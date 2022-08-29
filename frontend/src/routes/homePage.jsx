@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { PostsContext } from '../contexts/postsContext';
 import Feed from '../components/feed';
 import Categories from '../components/categories';
 
-import { TEST_POSTS } from './../assets/test-posts.js';
+//import { TEST_POSTS } from './../assets/test-posts.js';
 import logo from '../assets/images/logo512.png';
 import '../App.css';
 
 const HomePage = () => {
+  const { posts } = useContext(PostsContext);
   const [spin, setSpin] = useState(false);
 
-  const categories = [...new Set(TEST_POSTS.map((post) => post.category))];
+  const categories = [...new Set(posts.map((post) => post.category))];
 
   return (
     <div className="home-page page">
@@ -28,7 +30,7 @@ const HomePage = () => {
           <p>where the most mind bloggling blog posts will be</p>
         </div>
         <Categories categories={categories} />
-        <Feed posts={TEST_POSTS} />
+        <Feed posts={posts} />
       </header>
     </div>
   );
