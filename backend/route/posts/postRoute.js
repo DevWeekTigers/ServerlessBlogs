@@ -1,13 +1,14 @@
 const express = require('express');
 const { createPost , retrievePosts, retrievePost} = require('../../controllers/posts/postCtrl');
+const authMiddleware = require('../../middlewares/auth/authMiddleware');
 
 const postRoute = express.Router()
 
 
-postRoute.post('/', createPost)
+postRoute.post('/', authMiddleware,createPost)
 
-postRoute.get('/', retrievePosts)
+postRoute.get('/', authMiddleware, retrievePosts)
 
-postRoute.get('/:id', retrievePost)
+postRoute.get('/:id', authMiddleware, retrievePost)
 
 module.exports = postRoute;

@@ -14,9 +14,9 @@ userRoutes.post('/api/users/login', loginUser);
 
 userRoutes.get('/api/users', authMiddleware, fetchUsers);
 
-userRoutes.delete('api/users/:id', deleteUser);
+userRoutes.delete('api/users/:id', authMiddleware,deleteUser);
 
-userRoutes.get('/api/users/:id', fetchUser);
+userRoutes.get('/api/users/:id', authMiddleware,fetchUser);
 
 
 module.exports = userRoutes;
