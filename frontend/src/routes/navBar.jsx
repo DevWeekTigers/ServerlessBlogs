@@ -23,6 +23,7 @@ import {
 const NavBar = () => {
   
   return (
+<<<<<<< HEAD
     <>
       <Nav>
         <Bars />
@@ -45,6 +46,17 @@ const NavBar = () => {
         </NavBtn>
       </Nav>
     </>
+=======
+    <div className="App">
+      <div className="nav-container">
+        <Link to="/">Home</Link>{' '}
+        <Link to="/auth">Sign-In</Link>{' '}
+        <Link to="/user">User</Link>{' '}
+        <Link to="/admin">Admin</Link>{' '}
+      </div>
+      <Outlet />
+    </div>
+>>>>>>> 8f7cd5caa8cf5bc9afc3e1f83c613f3f0ace4710
   );
   
 

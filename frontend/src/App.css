@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+.nav-container {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 .page{
   background-color: #282c34;
   min-height: 100vh;
@@ -20,14 +26,30 @@
   padding: 10px;
 }
 
+.categories-container {
+  border: 5px solid yellow;
+  border-radius: 20px;
+}
+
+.feed-container {
+  border: 5px solid green;
+  border-radius: 20px;
+}
+
+.post-container {
+  border: 5px solid red;
+  border-radius: 20px;
+}
+
+.profile-container {
+  border: 5px solid purple;
+  border-radius: 20px;
+}
+
 .nav-container {
   height: 30px;
   padding: 15px;
   background-color: #F99D1C;
-}
-
-.home-page{
-  margin: 0; 
 }
 
 .App-logo {
@@ -47,16 +69,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.user-page {
-  margin: 0
-}
-
-.authentication-page {
-  margin: 0
-}
-
-.admin-page {
-  margin: 0
 }
