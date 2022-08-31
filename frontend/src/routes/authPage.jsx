@@ -6,9 +6,9 @@ import '../App.css';
 const AuthPage = () => {
   return (
     <div className="authentication-page page">
-      <p>this is the authentication page</p>
+      
       <SignIn />
-      <SignUp />
+      {/* <SignUp /> */}
     </div>
   );
 };

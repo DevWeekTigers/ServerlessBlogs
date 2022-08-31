@@ -23,30 +23,7 @@ import {
 const NavBar = () => {
   
   return (
-<<<<<<< HEAD
-    <>
-      <Nav>
-        <Bars />
-  
-        <NavMenu>
-          
-          <NavLink to='/home' activeStyle>
-            Home
-          </NavLink>
-          <NavLink to='/blogs' activeStyle>
-            User Blogs
-          </NavLink>
-          <NavLink to='/admin' activeStyle>
-            Admin
-          </NavLink>
-         
-        </NavMenu>
-        <NavBtn>
-          <NavBtnLink to='/signin'>Sign-In/Sign-Up</NavBtnLink>
-        </NavBtn>
-      </Nav>
-    </>
-=======
+
     <div className="App">
       <div className="nav-container">
         <Link to="/">Home</Link>{' '}
@@ -56,7 +33,6 @@ const NavBar = () => {
       </div>
       <Outlet />
     </div>
->>>>>>> 8f7cd5caa8cf5bc9afc3e1f83c613f3f0ace4710
   );
   
 

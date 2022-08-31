@@ -1,5 +1,17 @@
 import { useState } from 'react';
 import '../App.css';
+import React, { Component, Fragment } from 'react';  
+import { Modal } from 'react-bootstrap'; 
+import SignUp from './sign-up';
+import { Route, Router, Routes } from 'react-router-dom';
+import {Link} from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { FaDigitalTachograph } from 'react-icons/fa';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
 
 const defaultSignInFormFields = {
   email: '',
@@ -7,9 +19,12 @@ const defaultSignInFormFields = {
 };
 
 const SignIn = () => {
+
+  const navigate = useNavigate(); 
   const [signInFormFields, setSignInFormFields] = useState(
     defaultSignInFormFields
   );
+
   const { email, password } = signInFormFields;
 
   const resetFormFields = () => {
@@ -21,14 +36,33 @@ const SignIn = () => {
     setSignInFormFields({ ...signInFormFields, [name]: value });
   };
 
+  const UserLogin =  (email, password) => {
+    
+     axios.post('http://localhost:5000/api/users/login',
+            {
+              
+                email: email,
+                password: password
+            }
+           
+            )
+        
+        .then(data => {
+          localStorage.setItem('token', data.data.token);
+          navigate('/');
+        })
+       
+       .catch((err) => {
+          console.log(err.message);
+       });
+ };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const test = () => alert(
-        `some asynchronous authentication happens for ${email}`
-      );
-      await setTimeout(test, 1000)
-      resetFormFields();
+
+      UserLogin(email, password);
+
     } catch (error) {
       switch (error.code) {
         // update error codes to match backend api
@@ -44,31 +78,54 @@ const SignIn = () => {
     }
   };
 
+  
+
   return (
     <div className="sign-in-container comp">
-      <p>this is the sign-in container</p>
-      <span>Sign in with your email and password</span>
+      <span><h3>Sign in with your email and password</h3></span>
+      <br/><br/>
       <form onSubmit={handleSubmit}>
-        <input
-          label="Email"
-          type="email"
+
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Email</InputGroup.Text>
+        <Form.Control
+          aria-label="Email"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="email"
-          placeholder="email"
           value={email}
           onChange={handleChange}
+
         />
-        <input
-          label="Password"
-          type="password"
+      
+      </InputGroup>
+
+
+      <br />
+
+
+      <InputGroup size="lg">
+        <InputGroup.Text  id="inputGroup-sizing-lg">Password</InputGroup.Text>
+        <Form.Control
+          aria-label="Password"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="password"
-          placeholder="password"
           value={password}
           onChange={handleChange}
         />
-        <button type="submit">Sign In</button>
+      </InputGroup>
+      <br />
+        
+      <div className="d-grid gap-2">
+      <Button variant="primary" size="lg" type="submit">Sign In</Button>
+
+        </div>
       </form>
+      <br/>
+      <div>
+        If you are not signed in yet, please <Link to="/SignUp" >Sign Up</Link> here
+      </div>
     </div>
   );
 };

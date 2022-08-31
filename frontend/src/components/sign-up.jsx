@@ -1,6 +1,12 @@
 import { useState } from 'react';
-
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import '../App.css';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+
+
 
 const defaultFormFields = {
   firstName: '',
@@ -12,6 +18,8 @@ const defaultFormFields = {
 };
 
 const SignUp = () => {
+  const navigate = useNavigate(); 
+
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { firstName, lastName, displayName, email, password, confirmPassword } =
     formFields;
@@ -25,6 +33,30 @@ const SignUp = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const RegisterUser =  (firstName, lastName, email, password, displayName) => {
+    
+    axios.post('http://localhost:5000/api/users/register',
+           {
+               firstName,
+               lastName,
+               displayName,
+               email: email,
+               password: password
+           }
+          
+           )
+       
+       .then(data => {
+         console.log(data.data);
+         navigate('/');
+       })
+      
+      .catch((err) => {
+         console.log(err.message);
+      });
+};
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -32,10 +64,14 @@ const SignUp = () => {
       return;
     }
     try {
-      const test = () =>
-        alert(`some asynchronous sign-up magic happens for ${email}`);
-      await setTimeout(test, 1000);
-      resetFormFields();
+      // const test = () =>
+      //   alert(`some asynchronous sign-up magic happens for ${email}`);
+      // await setTimeout(test, 1000);
+      // resetFormFields();
+
+
+      RegisterUser(firstName, lastName, email, password, displayName);
+
     } catch (error) {
       switch (error.code) {
         // update error codes to match backend api
@@ -51,65 +87,107 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="sign-up-container comp">
-      <p>this is the sign-up container</p>
-      <span>Sign Up with your email and password</span>
+    <div className="authentication-page page" >
+      <span><h3>Sign Up with your email and password</h3></span>
+      <br/><br/>
+
       <form onSubmit={handleSubmit}>
-        <input
-          label="First Name"
-          type="text"
+
+      <InputGroup size="lg" >
+        <InputGroup.Text id="inputGroup-sizing-lg">First Name</InputGroup.Text>
+        <Form.Control
+          aria-label="First Name"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="firstName"
-          placeholder="first name"
           value={firstName}
           onChange={handleChange}
+          placeholder="first name"
         />
-        <input
-          label="Last Name"
-          type="text"
+      
+      </InputGroup>
+      <br />
+
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Last Name</InputGroup.Text>
+        <Form.Control
+          aria-label="Last Name"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="lastName"
-          placeholder="last name"
           value={lastName}
           onChange={handleChange}
+          placeholder="Last name"
         />
-        <input
-          label="Display Name"
-          type="text"
+      
+      </InputGroup>
+
+      <br />
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Display Name</InputGroup.Text>
+        <Form.Control
+          aria-label="Display Name"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="displayName"
-          placeholder="display name"
           value={displayName}
           onChange={handleChange}
+          placeholder="Display name"
         />
-        <input
-          label="Email"
-          type="email"
+      
+      </InputGroup>
+
+
+      <br />
+
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Email</InputGroup.Text>
+        <Form.Control
+          aria-label="Email"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="email"
-          placeholder="email"
           value={email}
           onChange={handleChange}
+          placeholder="email"
         />
-        <input
-          label="Password"
-          type="password"
+      
+      </InputGroup>
+
+      <br />
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Password</InputGroup.Text>
+        <Form.Control
+          aria-label="password"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="password"
-          placeholder="password"
           value={password}
           onChange={handleChange}
+          placeholder="password"
         />
-        <input
-          label="Confirm Password"
-          type="password"
+      
+      </InputGroup>
+
+      <br />
+      <InputGroup size="lg">
+        <InputGroup.Text id="inputGroup-sizing-lg">Confirm Password</InputGroup.Text>
+        <Form.Control
+          aria-label="confirmPassword"
+          aria-describedby="inputGroup-sizing-sm"
           required
           name="confirmPassword"
-          placeholder="confirm password"
           value={confirmPassword}
           onChange={handleChange}
+          placeholder="confirmPassword"
         />
-        <button type="submit">Sign Up</button>
+      
+      </InputGroup>
+      <br />
+      <div className="d-grid gap-2">
+      <Button variant="primary"  type="submit">Sign Up</Button>
+
+      </div>
       </form>
     </div>
   );
