@@ -43,6 +43,17 @@ const retrievePosts = async (req, res) => {
     }
 }
 
+const retrieveCategories = async (req, res) => {
+    try {
+        const categories = await Post.distinct("category");
+        res.json(categories); 
+    }
+    catch (error) {
+
+
+        
+    }
+}
 
 //-----------------------------------------------------
 // retrieve the post
@@ -62,4 +73,4 @@ const retrievePost = async (req, res) => {
 }
 
 
-module.exports = { createPost,retrievePosts, retrievePost} ;
+module.exports = { createPost,retrievePosts, retrievePost, retrieveCategories} ;
