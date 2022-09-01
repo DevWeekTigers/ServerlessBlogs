@@ -7,7 +7,7 @@ const postRoute = express.Router()
 
 postRoute.post('/', authMiddleware,createPost)
 
-postRoute.get('/', authMiddleware, retrievePosts)
+postRoute.get('/', retrievePosts)
 
 postRoute.get('/:id', authMiddleware, retrievePost)
 
