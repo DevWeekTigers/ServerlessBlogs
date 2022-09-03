@@ -8,8 +8,8 @@ const UserPage = () => {
     <div className="user-page page">
       <p>this is the user page</p>
       <Profile />
-      <PrevPosts />
       <NewPost />
+      <PrevPosts />
     </div>
   )
 };
