@@ -1,13 +1,9 @@
-import React, { /* Component, Fragment,  */ useState } from 'react';
+import React, { useState } from 'react';
 import '../App.css';
-//import { Modal } from 'react-bootstrap';
-//import SignUp from './sign-up';
-//import { Route, Router, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-//import { FaDigitalTachograph } from 'react-icons/fa';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -51,7 +47,7 @@ const SignIn = () => {
     try {
       UserLogin(email, password);
     } catch (error) {
-                console.log(error);
+      console.log(error);
 
       switch (error.code) {
         // update error codes to match backend api
@@ -110,8 +106,7 @@ const SignIn = () => {
       </form>
       <br />
       <h3>
-        Don't have an account yet? <Link to="/signUp">Sign Up</Link>{' '}
-        here
+        Don't have an account yet? <Link to="/signUp">Sign Up</Link> here
       </h3>
     </div>
   );
