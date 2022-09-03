@@ -6,6 +6,9 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  height: 50px;
+  padding: 15px;
+  background-color: #F99D1C;
 }
 
 .page{
@@ -46,14 +49,8 @@
   border-radius: 20px;
 }
 
-.nav-container {
-  height: 30px;
-  padding: 15px;
-  background-color: #F99D1C;
-}
-
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {

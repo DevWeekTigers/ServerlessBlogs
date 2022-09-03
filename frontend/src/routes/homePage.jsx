@@ -27,7 +27,6 @@ const HomePage = () => {
         />
         <div>
           <p>this is home page</p>{' '}
-          <p>where the most mind bloggling blog posts will be</p>
         </div>
         <Categories categories={categories} />
         <Feed posts={posts} />
