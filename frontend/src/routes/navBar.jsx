@@ -27,7 +27,7 @@ const NavBar = () => {
     <div className="App">
       <div className="nav-container">
         <Link to="/">Home</Link>{' '}
-        <Link to="/auth">Sign-In</Link>{' '}
+        <Link to="/signIn">Sign-In</Link>{' '}
         <Link to="/user">User</Link>{' '}
         <Link to="/admin">Admin</Link>{' '}
       </div>

@@ -85,7 +85,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="authentication-page page">
+    <div className="sign-up-page page">
       <span>
         <h3>Sign Up with your email and password</h3>
       </span>

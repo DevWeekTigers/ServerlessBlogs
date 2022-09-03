@@ -24,10 +24,6 @@ const SignIn = () => {
 
   const { email, password } = signInFormFields;
 
-  /*   const resetFormFields = () => {
-    setSignInFormFields(defaultSignInFormFields);
-  }; */
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setSignInFormFields({ ...signInFormFields, [name]: value });
@@ -55,6 +51,8 @@ const SignIn = () => {
     try {
       UserLogin(email, password);
     } catch (error) {
+                console.log(error);
+
       switch (error.code) {
         // update error codes to match backend api
         /*         case 'wrong-password':
@@ -70,7 +68,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-container comp">
+    <div className="sign-in-page page">
       <span>
         <h3>Sign in with your email and password</h3>
       </span>
@@ -111,10 +109,10 @@ const SignIn = () => {
         </div>
       </form>
       <br />
-      <div>
-        If you are not signed in yet, please <Link to="/SignUp">Sign Up</Link>{' '}
+      <h3>
+        Don't have an account yet? <Link to="/signUp">Sign Up</Link>{' '}
         here
-      </div>
+      </h3>
     </div>
   );
 };
