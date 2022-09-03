@@ -1,3 +1,4 @@
+import React from 'react';
 import { TEST_USERS } from '../assets/test-users';
 import '../App.css';
 
@@ -9,7 +10,7 @@ const Profile = () => {
     <div className="profile-container comp">
       <p>this is the user profile container</p>
 
-      <div className="profile-photo">Profile Photo: 🤪</div>
+      <div className="profile-photo">Profile Photo: <span role="img" aria-label="profile photo">🤪</span></div>
       <div className="first-name">First name: {firstName}</div>
       <div className="last-name">Last name: {lastName}</div>
       <div className="email">email: {email}</div>

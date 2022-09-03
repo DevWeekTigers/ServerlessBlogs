@@ -1,9 +1,9 @@
+import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import '../App.css';
-import Container from 'react-bootstrap/Container';
+/* import Container from 'react-bootstrap/Container';
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import React from 'react';
 import { MemoryRouter, Route } from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
@@ -17,7 +17,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
-} from './navBarElements';
+} from './navBarElements'; */
 
 
 const NavBar = () => {

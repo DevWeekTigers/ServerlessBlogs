@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { PostsContext } from '../contexts/postsContext';
 
 import '../App.css';

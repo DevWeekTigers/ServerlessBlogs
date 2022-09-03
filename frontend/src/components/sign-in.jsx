@@ -1,14 +1,13 @@
-import { useState } from 'react';
+import React, { /* Component, Fragment,  */useState } from 'react';  
 import '../App.css';
-import React, { Component, Fragment } from 'react';  
-import { Modal } from 'react-bootstrap'; 
-import SignUp from './sign-up';
-import { Route, Router, Routes } from 'react-router-dom';
+//import { Modal } from 'react-bootstrap'; 
+//import SignUp from './sign-up';
+//import { Route, Router, Routes } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { FaDigitalTachograph } from 'react-icons/fa';
+//import { FaDigitalTachograph } from 'react-icons/fa';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -27,9 +26,9 @@ const SignIn = () => {
 
   const { email, password } = signInFormFields;
 
-  const resetFormFields = () => {
+/*   const resetFormFields = () => {
     setSignInFormFields(defaultSignInFormFields);
-  };
+  }; */
 
   const handleChange = (event) => {
     const { name, value } = event.target;
