@@ -12,7 +12,7 @@ const userRegister = expressAsyncHandler(
 
         // check if user is already registered
         const user = await User.findOne({email: req?.body?.email});
-        console.log(user);
+        console.log("found user: ", user);
 
         if ( user  ) throw new Error("User already registered");
     
@@ -25,11 +25,11 @@ const userRegister = expressAsyncHandler(
                     password: req?.body?.password,
                 }
             );
-    
+    console.log('created user: ', res.json(user));
             res.json(user);
         }
         catch(error){
-            res.json(error.message);
+            res.json("error registering user: ",error.message);
         }
     }
 );

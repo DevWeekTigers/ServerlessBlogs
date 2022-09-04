@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import '../App.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { UsersContext } from '../contexts/usersContext';
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
+import '../App.css';
 
 const defaultSignInFormFields = {
   email: '',
@@ -19,6 +22,7 @@ const SignIn = () => {
   );
 
   const { email, password } = signInFormFields;
+  const { setCurrentUser } = useContext(UsersContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -34,6 +38,7 @@ const SignIn = () => {
 
       .then((data) => {
         localStorage.setItem('token', data.data.token);
+        setCurrentUser(data.data)
         navigate('/');
       })
 

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UsersContext } from './../contexts/usersContext';
+
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import '../App.css';
 import Button from 'react-bootstrap/Button';
+
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
+import '../App.css';
 
 const defaultFormFields = {
   firstName: '',
@@ -28,9 +32,7 @@ const SignUp = () => {
     confirmPassword,
   } = formFields;
 
-/*   const resetFormFields = () => {
-    setFormFields(defaultFormFields);
-  }; */
+  const { setCurrentUser } = useContext(UsersContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -48,7 +50,8 @@ const SignUp = () => {
       })
 
       .then((data) => {
-        console.log(data.data);
+        console.log("new user registered => ",data.data);
+        setCurrentUser(data.data)
         navigate('/');
       })
 
@@ -64,11 +67,6 @@ const SignUp = () => {
       return;
     }
     try {
-      // const test = () =>
-      //   alert(`some asynchronous sign-up magic happens for ${email}`);
-      // await setTimeout(test, 1000);
-      // resetFormFields();
-
       RegisterUser(firstName, lastName, email, password, displayName);
     } catch (error) {
       switch (error.code) {

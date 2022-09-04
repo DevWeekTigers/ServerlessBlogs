@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+
+import axios from 'axios';
+
 import '../App.css';
 
 const defaultNewPostFields = {
@@ -11,6 +16,8 @@ const defaultNewPostFields = {
 };
 
 const NewPost = () => {
+  const navigate = useNavigate();
+
   const [newPost, setNewPost] = useState(defaultNewPostFields);
   const { title, category, description } = newPost;
 
@@ -19,9 +26,33 @@ const NewPost = () => {
     setNewPost({ ...newPost, [name]: value });
   };
 
-  const handleSubmit = () => {
-    // write some async func here
+  const submitNewPost = (title, category, description, /* user */) => {
+    axios
+      .post('http://localhost:5000/api/posts.post', {
+        title,
+        category,
+        description,
+        /* user */
+      })
+
+      .then((data) => {
+        console.log(data.data);
+        navigate('/');
+      })
+
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
     console.log('you clicked publish!');
+    try {
+      submitNewPost(title, category, description, /* user */)
+    } catch (error) {
+      console.log('error encountered during new post submission', error);
+    }
   };
 
   return (

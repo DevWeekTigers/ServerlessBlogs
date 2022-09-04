@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
-//import { TEST_POSTS } from '../assets/test-posts';
 import axios from 'axios';
+
 export const PostsContext = createContext({
   posts: [],
   setPosts: () => {},
@@ -17,7 +17,7 @@ export const PostsProvider = ({ children }) => {
 
   useEffect(() => {
     getPostsData();
-     
+    
   }, []);
 
   const value = { posts, setPosts };

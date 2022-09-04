@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UsersContext } from '../contexts/usersContext';
 import { TEST_USERS } from '../assets/test-users';
 import '../App.css';
 
-const { firstName, lastName, email, password /* profilePhoto */ } =
-  TEST_USERS[0];
-
 const Profile = () => {
+  const { currentUser } = useContext(UsersContext);
+  const {
+    firstName,
+    lastName,
+    email,
+    password /* profilePhoto */,
+  } = currentUser;
+  
   return (
     <div className="profile-container comp">
       <p>this is the user profile container</p>
 
-      <div className="profile-photo">Profile Photo: <span role="img" aria-label="profile photo">🤪</span></div>
+      <div className="profile-photo">
+        Profile Photo:{' '}
+        <span role="img" aria-label="profile photo">
+          🤪
+        </span>
+      </div>
       <div className="first-name">First name: {firstName}</div>
       <div className="last-name">Last name: {lastName}</div>
       <div className="email">email: {email}</div>
