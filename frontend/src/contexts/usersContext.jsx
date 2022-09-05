@@ -14,12 +14,26 @@ export const UsersProvider = ({ children }) => {
 
   const getUsersData = async () => {
     const users = (await axios.get('http://localhost:5000/api/users')).data;
+    console.log('inside UserProvider.getUsersData - users :>> ', users);
     setUsers(users);
   };
 
+// get all users data when component initializes
   useEffect(() => {
     getUsersData();
   }, []);
+
+  // if local storage contains 'currentUser', set currentUser
+useEffect(() => {
+  const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (Object.keys(storedUser).length) { setCurrentUser(storedUser) };
+}, [])
+
+  // set currentUser into local storage when currentUser is updated
+  useEffect(() => {
+    if (Object.keys(currentUser).length) { localStorage.setItem("currentUser", JSON.stringify(currentUser)); 
+    console.log('Updated currentUser :>> ', currentUser) };
+  }, [currentUser])
 
   const value = { users, setUsers, currentUser, setCurrentUser };
 
