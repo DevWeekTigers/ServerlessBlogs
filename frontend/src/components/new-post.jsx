@@ -31,6 +31,7 @@ const NewPost = () => {
   };
 
   const submitNewPost = (title, category, description, user) => {
+    console.log('Inside submitNewPost - title, category, description, user :>> ', title, category, description, user);
     axios
       .post('http://localhost:5000/api/posts', {
         title,
@@ -51,9 +52,8 @@ const NewPost = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    console.log('you clicked publish!');
     try {
-      submitNewPost(title, category, description, user)
+      submitNewPost({ ...newPost, user })
     } catch (error) {
       console.log('error encountered during new post submission', error);
     }
