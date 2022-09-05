@@ -5,6 +5,7 @@ const Post = require('../../model/post/Post');
 //-----------------------------------------------------
 
 const createPost = async (req, res, next) => {
+  console.log('req.body :>> ', req.body);
   try {
     const post = await Post.create({
       title: req?.body?.title,
@@ -12,7 +13,7 @@ const createPost = async (req, res, next) => {
       category: req?.body?.category,
       user: req?.body?.user,
     });
-
+    console.log('res.json(post) :>> ', res.json(post));
     res.json(post);
   } catch (error) {
     res.json(error.message);

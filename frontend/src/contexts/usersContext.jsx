@@ -21,11 +21,9 @@ export const UsersProvider = ({ children }) => {
     getUsersData();
   }, []);
 
-  const value = { users, setUsers, currentUser, setCurrentUser }
+  const value = { users, setUsers, currentUser, setCurrentUser };
 
   return (
-    <UsersContext.Provider value={value}>
-      {children}
-    </UsersContext.Provider>
+    <UsersContext.Provider value={value}>{children}</UsersContext.Provider>
   );
 };

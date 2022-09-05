@@ -17,7 +17,6 @@ export const PostsProvider = ({ children }) => {
 
   useEffect(() => {
     getPostsData();
-    
   }, []);
 
   const value = { posts, setPosts };

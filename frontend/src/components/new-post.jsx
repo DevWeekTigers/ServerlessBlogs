@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UsersContext } from '../contexts/usersContext';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -21,18 +22,21 @@ const NewPost = () => {
   const [newPost, setNewPost] = useState(defaultNewPostFields);
   const { title, category, description } = newPost;
 
+  const { currentUser } = useContext(UsersContext);
+  const user = currentUser._id;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewPost({ ...newPost, [name]: value });
   };
 
-  const submitNewPost = (title, category, description, /* user */) => {
+  const submitNewPost = (title, category, description, user) => {
     axios
-      .post('http://localhost:5000/api/posts.post', {
+      .post('http://localhost:5000/api/posts', {
         title,
         category,
         description,
-        /* user */
+        user
       })
 
       .then((data) => {
@@ -49,7 +53,7 @@ const NewPost = () => {
     e.preventDefault();
     console.log('you clicked publish!');
     try {
-      submitNewPost(title, category, description, /* user */)
+      submitNewPost(title, category, description, user)
     } catch (error) {
       console.log('error encountered during new post submission', error);
     }

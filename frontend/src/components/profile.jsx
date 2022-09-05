@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { UsersContext } from '../contexts/usersContext';
-import { TEST_USERS } from '../assets/test-users';
 import '../App.css';
 
 const Profile = () => {
@@ -11,7 +10,7 @@ const Profile = () => {
     email,
     password /* profilePhoto */,
   } = currentUser;
-  
+
   return (
     <div className="profile-container comp">
       <p>this is the user profile container</p>

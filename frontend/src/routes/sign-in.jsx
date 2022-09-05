@@ -37,9 +37,9 @@ const SignIn = () => {
       })
 
       .then((data) => {
-        localStorage.setItem('token', data.data.token);
-        setCurrentUser(data.data)
-        navigate('/');
+        localStorage.setItem('token', JSON.stringify(data.data.token));
+        setCurrentUser(data.data);
+        navigate('/');        
       })
 
       .catch((err) => {
