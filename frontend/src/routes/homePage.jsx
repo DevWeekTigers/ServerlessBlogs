@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { PostsContext } from '../contexts/postsContext';
+import React, { useState/* , useContext */ } from 'react';
+/* import { PostsContext } from '../contexts/postsContext'; */
 import Feed from '../components/feed';
 import Categories from '../components/categories';
 
@@ -8,10 +8,10 @@ import logo from '../assets/images/logo512.png';
 import '../App.css';
 
 const HomePage = () => {
-  const { posts } = useContext(PostsContext);
+/*   const { posts, categories } = useContext(PostsContext); */
   const [spin, setSpin] = useState(false);
 
-  const categories = [...new Set(posts.map((post) => post.category))];
+  /* const categories = [...new Set(posts.map((post) => post.category))]; */
 
   return (
     <div className="home-page page">
@@ -28,8 +28,8 @@ const HomePage = () => {
         <div>
           <p>this is home page</p>{' '}
         </div>
-        <Categories categories={categories} />
-        <Feed posts={posts} />
+        <Categories /* categories={categories} */ />
+        <Feed /* posts={posts} */ />
       </header>
     </div>
   );

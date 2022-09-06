@@ -26,7 +26,7 @@ export const UsersProvider = ({ children }) => {
   // if local storage contains 'currentUser', set currentUser
 useEffect(() => {
   const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-  if (Object.keys(storedUser).length) { setCurrentUser(storedUser) };
+  if (storedUser/* Object.keys(storedUser).length */) { setCurrentUser(storedUser) };
 }, [])
 
   // set currentUser into local storage when currentUser is updated
