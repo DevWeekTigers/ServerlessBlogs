@@ -6,6 +6,10 @@ export const PostsContext = createContext({
   setPosts: () => {},
 });
 
+
+
+
+
 export const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState(TEST_POSTS);
   const value = { posts, setPosts };

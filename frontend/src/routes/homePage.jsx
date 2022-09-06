@@ -14,26 +14,33 @@ const HomePage = () => {
   const categories = [...new Set(posts.map((post) => post.category))];
 
   return (
-    <div className="home-page page">
+  
+
+    <div id= "Home" className="tabcontent">
+
       <header className="App-header">
-        <img
-          src={logo}
-          className="App-logo"
-          alt="logo"
-          onClick={() => {
-            setSpin(!spin);
-          }}
-          spin={`${spin}`}
-        />
+
+
         <div>
-          <p>this is home page</p>{' '}
-          <p>where the most mind bloggling blog posts will be</p>
+
+          <h1>Welcome to Serverless Blog</h1>{' '}
+
+          <p>Find the most updated content on your favorite topic and explore.</p>
+          
+
         </div>
+
         <Categories categories={categories} />
+
         <Feed posts={posts} />
-      </header>
+
+      </header> 
+
+    
     </div>
+
   );
+
 };
 
 export default HomePage;

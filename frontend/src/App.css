@@ -1,5 +1,98 @@
-.App {
-  text-align: center;
+
+.tabcontent {
+
+  border: 2px solid blueviolet;
+  background: url("./assets/images/pexels-andrea-piacquadio-3772511.jpg");
+  background-repeat: no-repeat;
+  padding:  auto;
+  /* background-attachment: fixed; */
+  background-size:auto;
+  background-attachment: local;
+  float: left
+
+}
+
+
+
+
+
+.tab button{
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px, 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+
+.feed-container{
+
+  background-color: lightblue;
+  width: auto;
+  min-height: 400px;
+  font-family: sans-serif;
+  font-display: block;
+  border: 7px solid goldenrod;
+  border-radius: 10px;
+  
+
+}
+
+
+
+.post-container{
+
+  background-color: #555;
+  font-family: sans-serif;
+  width: max-content;
+  min-height: 200px;
+  font-family: 'Times New Roman', Times, serif;
+  font-display: block;
+  border: 7px solid indianred;
+
+}
+
+
+
+footer{
+
+  background-color: #FF5733;
+  font-optical-sizing: 70px;
+  font-display: left;
+  background: rgb(0, 0, 0);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-block-start: auto;
+}
+
+
+
+.nav-container {
+  background-color: #555;
+  color: white;
+  float: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 10px;
+  font-size: 15px;
+  width: 80%;
+  height: auto;
+}
+
+
+
+.nav-container:hover {
+  background-color: rgb(29, 4, 40);
+
+
 }
 
 .nav-container {
@@ -8,59 +101,186 @@
   top: 0;
 }
 
+
 .page{
-  background-color: #282c34;
+
+  background-color: azure;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+
 }
 
+
+
+
 .comp {
-  border: 5px solid blue;
+  border: 5px solid black;
   border-radius: 20px;
   margin: 10px;
   padding: 10px;
 }
 
-.categories-container {
-  border: 5px solid yellow;
-  border-radius: 20px;
+
+.categories-container{
+
+text-align: left;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+padding: auto;
+width: 300px;
+border: 15px solid green;
+margin: 20PX;
 }
 
-.feed-container {
-  border: 5px solid green;
-  border-radius: 20px;
+
+
+.button {
+
+  background-color: #4CAF50;
+  border:none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
 }
+
+
+
+
+p{
+
+  color: aliceblue;
+  text-emphasis: none;
+  text-align: justify;
+  text-indent: 20px;
+  letter-spacing: 3px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+
+
+.categories-container {
+
+  border: 10px solid black;
+  border-radius: 20px;
+  background-color: rgb(80, 90, 123);
+  color: antiquewhite;
+  width: auto;
+  height: 55vh;
+  gap: auto;
+  padding: 17px;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  display: flexbox;
+  justify-content: center;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px, 1fr, 1fr, 100px;
+
+}
+
+
+
+
+h2{
+
+  font-size: large;
+}
+
+
+
+
+.App-header {
+
+  grid-column-start: auto;
+  grid-column-end: auto;
+   
+
+}
+
+
+
+.content-large {
+  grid-row-start: 2;
+  grid-row-end: span 2;
+
+}
+
+
+
 
 .post-container {
-  border: 5px solid red;
+  border: 4px solid #746AB0;
   border-radius: 20px;
 }
+
+
+
+
 
 .profile-container {
-  border: 5px solid purple;
+  border: 20px solid purple;
   border-radius: 20px;
+
 }
+
+
+
+main#navbar {
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: goldenrod;
+}
+
+
+
 
 .nav-container {
+  width: 70%;
   height: 30px;
-  padding: 15px;
-  background-color: #F99D1C;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-around;
+  background-color: inherit;
 }
 
+
+
+
 .App-logo {
-  height: 40vmin;
+  height: 60px;
+  padding: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo[spin='true'] {
     animation: App-logo-spin infinite 15s linear;
   }
 }
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -70,3 +290,5 @@
     transform: rotate(360deg);
   }
 }
+
+
