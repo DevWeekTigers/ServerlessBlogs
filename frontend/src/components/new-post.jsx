@@ -31,15 +31,24 @@ const NewPost = () => {
   };
 
   const submitNewPost = (title, category, description, user) => {
-    console.log('Inside submitNewPost - title, category, description, user :>> ', title, category, description, user);
-    axios
-      .post('http://localhost:5000/api/posts', {
-        title,
-        category,
-        description,
-        user
-      })
+    console.log('Inside submitNewPost - title, category, description, user :>> ', 
+      title, category, description, user);
+    
+    let token = localStorage.getItem('token');
 
+    console.log(token);
+
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+   };
+
+    axios
+      .post('http://localhost:8080/api/posts', {
+        title: title,
+        category: category,
+        description: description,
+        user: user
+      })
       .then((data) => {
         console.log(data.data);
         navigate('/');
@@ -53,7 +62,7 @@ const NewPost = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      submitNewPost({ ...newPost, user })
+      submitNewPost(title, category, description, user)
     } catch (error) {
       console.log('error encountered during new post submission', error);
     }
@@ -101,7 +110,7 @@ const NewPost = () => {
           ></Form.Control>
         </InputGroup>
         <Button type="submit" onSubmit={handleSubmit}>
-          publish
+          Publish
         </Button>
       </form>
     </div>

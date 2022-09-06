@@ -13,7 +13,7 @@ const createPost = async (req, res, next) => {
       category: req?.body?.category,
       user: req?.body?.user,
     });
-    console.log('res.json(post) :>> ', res.json(post));
+    console.log('res.json(post) :>> ');
     res.json(post);
   } catch (error) {
     res.json(error.message);

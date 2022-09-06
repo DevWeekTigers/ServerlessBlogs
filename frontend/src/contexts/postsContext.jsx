@@ -16,13 +16,13 @@ export const PostsProvider = ({ children }) => {
   const [selectedPosts, setSelectedPosts] = useState([]);
   
   const getPostsData = async () => {
-    const allPosts  =  (await axios.get('http://localhost:5000/api/posts')).data;
+    const allPosts  =  (await axios.get('http://localhost:8080/api/posts')).data;
     setPosts(allPosts);
     setSelectedPosts(allPosts);
   };
 
   const getCategories = async () => {
-    const categories = (await axios.get('http://localhost:5000/api/posts/categories')).data;
+    const categories = (await axios.get('http://localhost:8080/api/posts/categories')).data;
 /*     console.log('inside getCategories - categories :>> ', categories); */
     setCategories(categories);
   }

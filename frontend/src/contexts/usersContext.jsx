@@ -13,7 +13,7 @@ export const UsersProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
 
   const getUsersData = async () => {
-    const users = (await axios.get('http://localhost:5000/api/users')).data;
+    const users = (await axios.get('http://localhost:8080/api/users')).data;
     console.log('inside UserProvider.getUsersData - users :>> ', users);
     setUsers(users);
   };
