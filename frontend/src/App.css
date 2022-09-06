@@ -6,6 +6,9 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  height: 50px;
+  padding: 15px;
+  background-color: #F99D1C;
 }
 
 .page{
@@ -41,19 +44,22 @@
   border-radius: 20px;
 }
 
+textarea {
+  padding: 10px;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
+}
+
 .profile-container {
   border: 5px solid purple;
   border-radius: 20px;
 }
 
-.nav-container {
-  height: 30px;
-  padding: 15px;
-  background-color: #F99D1C;
-}
-
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {

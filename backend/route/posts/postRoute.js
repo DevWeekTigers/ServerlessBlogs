@@ -5,7 +5,7 @@ const authMiddleware = require('../../middlewares/auth/authMiddleware');
 const postRoute = express.Router()
 
 
-postRoute.post('/', authMiddleware,createPost)
+postRoute.post('/', authMiddleware, createPost)
 
 postRoute.get('/', retrievePosts)
 postRoute.get('/categories', retrieveCategories)
