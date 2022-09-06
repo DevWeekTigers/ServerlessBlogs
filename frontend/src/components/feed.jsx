@@ -4,12 +4,17 @@ import Post from './post';
 
 import '../App.css';
 
-const Feed = (/* { posts } */) => {
-  const { selectedPosts } = useContext(PostsContext);
+const Feed = ({ user }) => {
+
+  let { selectedPosts } = useContext(PostsContext);
+
+  if (user) {
+    selectedPosts = selectedPosts.filter(post => post.user.id === user._id)
+  };
 
   return (
     <div className="feed-container comp">
-      <p>this is the feed container</p>
+      <p>Feed:</p>
       {selectedPosts && selectedPosts.map((post, idx) => (
         <Post key={idx} post={post} />
       ))}

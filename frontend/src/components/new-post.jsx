@@ -61,7 +61,7 @@ const NewPost = () => {
 
   return (
     <div className="new-post-container comp">
-      <p>this is the NewPost container</p>
+      <p>Create a new post</p>
       <form onSubmit={handleSubmit}>
         <InputGroup size="lg">
           <InputGroup.Text id="inputGroup-sizing-lg">Title</InputGroup.Text>

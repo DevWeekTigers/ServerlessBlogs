@@ -26,7 +26,7 @@ const HomePage = () => {
           spin={`${spin}`}
         />
         <div>
-          <p>this is home page</p>{' '}
+          <p>Tiger Blogs!</p>{' '}
         </div>
         <Categories /* categories={categories} */ />
         <Feed /* posts={posts} */ />

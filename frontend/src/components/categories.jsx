@@ -8,7 +8,6 @@ const Categories = () => {
 
   const handleCategoryChange = (e) => {
     const selected = e.target.value;
-    console.log('you selected :>> ', selected);
     const filteredPosts = posts.filter((post) => post.category === selected);
     selected === 'All'
       ? setSelectedPosts(posts)
@@ -27,7 +26,6 @@ const Categories = () => {
           {category}
         </Category>
       ))}
-      {/* </select> */}
     </div>
   );
 };
