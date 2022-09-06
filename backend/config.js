@@ -5,6 +5,7 @@ dotenv.config({
     path: path.resolve(__dirname, `${process.env.NODE_ENV}.env`)
 });
 
+//console.log('process.env.NODE_ENV :>> ', process.env.NODE_ENV);
 
 module.exports = {
     NODE_ENV: process.env.NODE_ENV || 'development',
@@ -12,4 +13,4 @@ module.exports = {
     PORT: process.env.PORT || 3000,
     JWT_KEY: process.env.JWT_KEY,
     MONGODB_URL: process.env.MONGODB_URL
-}
+};

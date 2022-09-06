@@ -1,34 +1,27 @@
-//import NavBar from './routes/navBar';
+import React from 'react';
+import NavBar from './routes/navBar';
 import HomePage from './routes/homePage';
-import AuthPage from './routes/authPage';
 import UserPage from './routes/userPage';
 import AdminPage from './routes/adminPage';
-import SignUp from './components/sign-up';
+import SignUp from './routes/sign-up';
+import SignIn from './routes/sign-in';
 
-//import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './routes/navBar';
-
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  
   return (
-    
-     <>
-     <Navbar />
+    <>
       <Routes>
-         <Route index element={<HomePage />} />
-         <Route path="/user" element={<UserPage />} />
-         <Route path="/auth" element={<AuthPage />} />
-         <Route path="/admin" element={<AdminPage />} />
-         <Route path="/signup" element={<SignUp />} />
-
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<HomePage />} />
+          <Route path="/user" element={<UserPage />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
       </Routes>
-     </>
-      
-    
+    </>
   );
-
 }
 
 export default App;

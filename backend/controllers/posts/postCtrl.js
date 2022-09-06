@@ -1,76 +1,59 @@
-const Post = require("../../model/post/Post");
-
+const Post = require('../../model/post/Post');
 
 //-----------------------------------------------------
-// Create a new Post 
+// Create a new Post
 //-----------------------------------------------------
 
-const createPost = async (req, res, next) => { 
-
-    try {
-        const post = await Post.create({
-            title: req?.body?.title,
-            description: req?.body?.description,
-            category: req?.body?.category,
-            user: req?.body?.user
-        })
-
-
-        res.json(post);
-    }
-    catch (error) {
-        res.json(error.message);
-    }
-
-}
-
+const createPost = async (req, res, next) => {
+  console.log('req.body :>> ', req.body);
+  try {
+    const post = await Post.create({
+      title: req?.body?.title,
+      description: req?.body?.description,
+      category: req?.body?.category,
+      user: req?.body?.user,
+    });
+    console.log('res.json(post) :>> ', res.json(post));
+    res.json(post);
+  } catch (error) {
+    res.json(error.message);
+  }
+};
 
 //-----------------------------------------------------
 // retrieve the posts
 //-----------------------------------------------------
 
 const retrievePosts = async (req, res) => {
-    try {
+  try {
+    const posts = await Post.find({}).populate('user');
 
-        const posts = await Post.find({}).populate("user");
-
-        res.json(posts); 
-    }
-    catch (error) {
-
-
-        
-    }
-}
+    res.json(posts);
+  } catch (error) {}
+};
 
 const retrieveCategories = async (req, res) => {
-    try {
-        const categories = await Post.distinct("category");
-        res.json(categories); 
-    }
-    catch (error) {
-
-
-        
-    }
-}
+  try {
+    const categories = await Post.distinct('category');
+    res.json(categories);
+  } catch (error) {}
+};
 
 //-----------------------------------------------------
 // retrieve the post
 //-----------------------------------------------------
 
 const retrievePost = async (req, res) => {
-    try {
+  try {
+    const { id } = req.params;
+    const post = await Post.findById(id).populate('user');
+    res.json(post);
+  } catch (error) {}
+};
 
-        const {id} = req.params;
-        const post = await Post.findById(id).populate("user");
-        res.json(post);
-    }
-    catch (error) 
-    {
-      
-    }
-}
-
-
-module.exports = { createPost,retrievePosts, retrievePost, retrieveCategories} ;
+module.exports = {
+  createPost,
+  retrievePosts,
+  retrievePost,
+  retrieveCategories,
+};
