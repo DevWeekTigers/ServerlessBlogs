@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const config = require('../../config');
 
 
-const dbConnect = async () => {
+const dbConnect = async (connectionName) => {
     try{
-        await mongoose.connect(config.MONGODB_URL, {
+        await mongoose.connect(connectionName, {
             //useCreateIndex: true,
             //useFindAndModify: true,
             useUnifiedTopology: true,

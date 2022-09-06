@@ -47,15 +47,17 @@ const loginUser = expressAsyncHandler(
 
         if ( userFound && (await userFound.isPasswordMatch(password)))
         {
-            res.json({
+             let token = await generateToken(userFound?.id);
+             res.json({
                 _id: userFound?._id,
                 firstName: userFound?.firstName,
                 lastName: userFound?.lastName,
                 email: userFound?.email,
                 profilePhoto: userFound?.profilePhoto,
                 isAdmin: userFound?.isAdmin,
-                token: generateToken(userFound?.id),
+                token: token,
             });
+            
         }
         else
         {

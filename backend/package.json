@@ -6,13 +6,16 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev": "set NODE_ENV=development&& node server.js",
-    "prod": "set NODE_ENV=production&& node server.js"
+    "dev": "export NODE_ENV=development&& node server.js",
+    "prod": "export NODE_ENV=production&& node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/identity": "^2.1.0",
+    "@azure/keyvault-secrets": "^4.5.1",
     "axios": "^0.27.2",
+    "azure-keyvault": "^3.0.5",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

@@ -7,14 +7,37 @@ const postRoute = require("./route/posts/postRoute");
 const { errorHandler, notFound } = require("./middlewares/error/errorHandler");
 const cors = require('cors');
 const config = require('./config');
-
+const { SecretClient } = require('@azure/keyvault-secrets');
+const { DefaultAzureCredential } = require('@azure/identity');
+const { getKeyVaultCredentials , getKeyVaultSecret}  = require('./config/keyvault/keyvaultconnect');
 
 
 const app = express();
-//dotenv.config();
+///////////////////////////////////
 
-dbConnect();
-console.log(process.env)
+
+const KEY_VAULT_URL = config.KEY_VAULT_URL;
+const SECRET_DB_NAME = config.SECRET_DB_NAME;
+
+const AZURE_TENANT_ID = config.AZURE_TENANT_ID;
+const AZURE_CLIENT_ID = config.AZURE_CLIENT_ID;
+const AZURE_CLIENT_SECRET = config.AZURE_CLIENT_SECRET;
+
+console.log(KEY_VAULT_URL);
+console.log(SECRET_DB_NAME);
+
+
+let credentials = getKeyVaultCredentials();
+getKeyVaultSecret(KEY_VAULT_URL, credentials, SECRET_DB_NAME)
+    .then(function (secret) {
+      dbConnect(secret.value);
+
+    }).catch(function (err) {
+      console.log(err);
+    });
+
+//////////////////////////////////
+
 
 app.use(express.json());
 app.use(cors({
@@ -31,9 +54,6 @@ app.use('/api/posts', postRoute)
 app.use(notFound);
 app.use(errorHandler);
 
-//const PORT = process.env.PORT || 5000
-
-//app.listen(PORT, console.log(`Server listening on ${PORT}`));
 app.listen(config.PORT, config.HOST, () => {
     console.log(`APP LISTENING ON http://${config.HOST}:${config.PORT}`);
 })
