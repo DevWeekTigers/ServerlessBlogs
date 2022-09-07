@@ -96,6 +96,7 @@ const SignIn = () => {
             aria-label="Password"
             aria-describedby="inputGroup-sizing-sm"
             required
+            type="password"
             name="password"
             value={password}
             onChange={handleChange}

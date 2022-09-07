@@ -162,6 +162,7 @@ const SignUp = () => {
             aria-describedby="inputGroup-sizing-sm"
             required
             name="password"
+            type="password"
             value={password}
             onChange={handleChange}
             placeholder="password"
@@ -178,6 +179,7 @@ const SignUp = () => {
             aria-describedby="inputGroup-sizing-sm"
             required
             name="confirmPassword"
+            type="password"
             value={confirmPassword}
             onChange={handleChange}
             placeholder="confirmPassword"
