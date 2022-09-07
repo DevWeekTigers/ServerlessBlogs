@@ -11,8 +11,10 @@ const PrevPosts = () => {
   return (
     <div className="prev-posts-container comp">
       <p>User's previous posts</p>
-      <Categories />
-      <Feed user={ currentUser }/>
+<div className='posts-container'>
+        <Categories />
+        <Feed user={ currentUser }/>
+</div>
     </div>
   );
 };

@@ -18,6 +18,8 @@ const Feed = ({ user }) => {
       {selectedPosts && selectedPosts.map((post, idx) => (
         <Post key={idx} post={post} />
       ))}
+      <p>Feel free to leave a comment and drop
+      a like after every post you have read.</p>
     </div>
   );
 };
