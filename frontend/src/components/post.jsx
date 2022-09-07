@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const Post = ({ post }) => {
-  const { title, category,/* numViews, */  likes, description } = post;
+  const { title, category,/* numViews, */ user,  likes, description } = post;
   
   return(
     <div className="post-container comp">
