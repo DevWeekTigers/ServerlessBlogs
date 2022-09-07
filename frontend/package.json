@@ -10,6 +10,8 @@
     "bootstrap": "^5.2.0",
     "browser-router": "^0.2.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.2",
+    "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^1.6.6",
     "react-dom": "^18.2.0",
@@ -22,8 +24,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:development": "env-cmd -f .env.development  react-scripts start",
+    "start:production": "env-cmd -f .env.production  react-scripts start",
+
+    "build": "env-cmd -f .env.production  react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

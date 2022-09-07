@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
 
 import '../App.css';
-
+import { API_ENDPOINT } from '../config';
 const defaultNewPostFields = {
   title: '',
   category: '',
@@ -34,21 +34,25 @@ const NewPost = () => {
     console.log('Inside submitNewPost - title, category, description, user :>> ', 
       title, category, description, user);
     
-    let token = localStorage.getItem('token');
+    let token = JSON.parse(localStorage.getItem('token'));
 
-    console.log(token);
-
+    console.log(token)
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { 
+        "Content-type": "application/json; charset=UTF-8",
+        "Authorization": `Bearer ${token}`  }
+        //"Authorization": `Bearer ${token}` }
    };
 
+   
+
     axios
-      .post('http://localhost:8080/api/posts', {
+      .post( API_ENDPOINT + '/api/posts', {
         title: title,
         category: category,
         description: description,
         user: user
-      })
+      }, config)
       .then((data) => {
         console.log(data.data);
         navigate('/');

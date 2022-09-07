@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 import axios from 'axios';
-
+import { API_ENDPOINT } from '../config';
 import '../App.css';
 
 const defaultSignInFormFields = {
@@ -31,7 +31,7 @@ const SignIn = () => {
 
   const UserLogin = (email, password) => {
     axios
-      .post('http://localhost:8080/api/users/login', {
+      .post(API_ENDPOINT + '/api/users/login', {
         email: email,
         password: password,
       })
