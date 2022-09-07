@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/264a2087-c116-4fbf-a051-7209921e0896/microsoft.web/sites/subscriptions/264a2087-c116-4fbf-a051-7209921e0896/resourceGroups/tiger_serverlessblogs_rg/providers/Microsoft.Web/sites/tigerserverlessblogs",
+    "appService.deploySubpath": "."
+}
