@@ -8,6 +8,8 @@ import SignIn from './routes/sign-in';
 
 import { Routes, Route } from 'react-router-dom';
 
+require('dotenv').config()
+
 function App() {
   return (
     <>

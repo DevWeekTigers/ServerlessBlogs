@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_ENDPOINT } from '../config';
 
 export const PostsContext = createContext({
   posts: [],
@@ -10,19 +11,22 @@ export const PostsContext = createContext({
   setSelectedPosts: () => {},
 });
 
+
 export const PostsProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [categories, setCategories] = useState([])
   const [selectedPosts, setSelectedPosts] = useState([]);
   
   const getPostsData = async () => {
-    const allPosts  =  (await axios.get('http://localhost:8080/api/posts')).data;
+    console.log(API_ENDPOINT);
+    
+    const allPosts  =  (await axios.get(API_ENDPOINT + '/api/posts')).data;
     setPosts(allPosts);
     setSelectedPosts(allPosts);
   };
 
   const getCategories = async () => {
-    const categories = (await axios.get('http://localhost:8080/api/posts/categories')).data;
+    const categories = (await axios.get(API_ENDPOINT + '/api/posts/categories')).data;
 /*     console.log('inside getCategories - categories :>> ', categories); */
     setCategories(categories);
   }

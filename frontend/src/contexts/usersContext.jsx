@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { API_ENDPOINT } from '../config';
 export const UsersContext = createContext({
   users: [],
   setUsers: () => {},
@@ -13,7 +14,7 @@ export const UsersProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
 
   const getUsersData = async () => {
-    const users = (await axios.get('http://localhost:8080/api/users')).data;
+    const users = (await axios.get( API_ENDPOINT + '/api/users')).data;
     console.log('inside UserProvider.getUsersData - users :>> ', users);
     setUsers(users);
   };
