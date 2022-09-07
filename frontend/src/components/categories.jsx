@@ -26,6 +26,7 @@ const Categories = () => {
           {category}
         </Category>
       ))}
+      <br />
       <p>Choose a category that you want to explore and dig in.</p>
     </div>
   );
