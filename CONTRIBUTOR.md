@@ -1,6 +1,9 @@
 ## Contributing
 We are open to, and grateful for, any contributions made by the community. By contributing to Blog Web Application using MERN stack, you agree to abide by the code of conduct.
 
+This project is the work of the a team who involed in DevPost 2022. You can look at the 
+application that we submitted to devpost.com at https://devpost.com/software/serverless-blogging-web-application
+
 ## Code Style
 Please follow the node style guide.
 
