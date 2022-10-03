@@ -13,3 +13,18 @@ Please update the tests to reflect your code changes. Pull requests will not be 
 ## Documentation
 Please update the docs accordingly so that there are no discrepancies between the API and the documentation.
 
+## Development
+### Fronend
+
+
+cd frontend
+npm install
+npm run start:development
+
+then Open 127.0.0.1:3000
+
+### Backend
+
+cd backend
+
+npm install
