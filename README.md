@@ -1,4 +1,4 @@
-"# ServerlessBlogs" 
+#ServerlessBlogs 
 
 ## We will develop a blogging web application using technology stack:
 
