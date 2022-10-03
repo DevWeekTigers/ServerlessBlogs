@@ -28,3 +28,6 @@ then Open 127.0.0.1:3000
 cd backend
 
 npm install
+npm run dev
+
+then open Postman to get the list of APIs at localhost:8080
