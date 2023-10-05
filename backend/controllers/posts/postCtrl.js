@@ -7,11 +7,12 @@ const Post = require('../../model/post/Post');
 const createPost = async (req, res, next) => {
   console.log('req.body :>> ', req.body);
   try {
+    const { title, description, category, user } = req?.body;
     const post = await Post.create({
-      title: req?.body?.title,
-      description: req?.body?.description,
-      category: req?.body?.category,
-      user: req?.body?.user,
+      title,
+      description,
+      category,
+      user,
     });
     console.log('res.json(post) :>> ');
     res.json(post);
