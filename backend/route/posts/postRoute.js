@@ -4,13 +4,13 @@ const authMiddleware = require('../../middlewares/auth/authMiddleware');
 
 const postRoute = express.Router()
 
-
-postRoute.post('/', authMiddleware, createPost)
-
 postRoute.get('/', retrievePosts)
 postRoute.get('/categories', retrieveCategories)
 
-postRoute.get('/:id', authMiddleware, retrievePost)
+postRoute.use(authMiddleware)
+
+postRoute.post('/', createPost)
+postRoute.get('/:id', retrievePost)
 
 
 
